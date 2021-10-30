@@ -3,24 +3,77 @@ const fs = require("fs");
 const path = require('path');
 const inquirer = require("inquirer");
 
-// Array of questions for user input
-const questions = require("./utils/questionsManager.js");
-const questions = require("./utils/questionsEngineer.js");
-const questions = require("./utils/questionsIntern.js");
-
-// Function for creating file content
 const generateFile = require("./utils/generateHTML.js")
 
-const fileName = ("index.html");
+const fileName = "index.html";
 
-// Writes to HTML file
-function writeToFile() {
-    inquirer.prompt(questions)
-        .then(answers => {
-            fs.writeFile(path.join(__dirname,"dist",fileName), generateFile(answers), err => {
-                err ? console.log(err) : console.log('The file has been saved!');
-            });
-        });
+const Manager = require("./utils/manager");
+const Engineer = require("./utils/engineer");
+const Intern = require("./utils/intern");
+const buildTeamQuestion = require("./utils/addTeamQuestion");
+
+const team = [];
+let employeeRole = "Manager";
+let keepBuilding = true;
+
+async function buildTeam() {
+    let manager = new Manager(employeeRole)
+    console.clear() 
+    await manager.getName(employeeRole);
+    await manager.getId(employeeRole);
+    await manager.getEmail(employeeRole);
+    await manager.officeNumber();
+    team.push(manager)
+
+    let build = await inquirer.prompt(buildTeamQuestion)
+    continueBuild(build.occupation)
+
+    while (keepBuilding) {
+        if (employeeRole === "Engineer") {
+            let engineer = new Engineer(employeeRole)
+            console.clear() 
+            await engineer.getName(employeeRole);
+            await engineer.getId(employeeRole);
+            await engineer.getEmail(employeeRole);
+            await engineer.getGithub();
+            team.push(engineer)
+            build = await inquirer.prompt(buildTeamQuestion)
+            continueBuild(build.occupation)
+
+        } else {
+            let intern = new Intern(employeeRole)
+            console.clear() 
+            await intern.getName(employeeRole);
+            await intern.getId(employeeRole);
+            await intern.getEmail(employeeRole);
+            await intern.getSchool();
+            team.push(intern)
+            build = await inquirer.prompt(buildTeamQuestion)
+            continueBuild(build.occupation)
+        }
+    }
+    // console.log(team)
+    writeToFile(team)
 }
 
-writeToFile();
+function continueBuild(build) {
+    switch (build) {
+        case "Finish building my team":
+            keepBuilding = false;
+            break;
+        case "Engineer":
+            employeeRole = "Engineer"
+            break;
+        case "Intern":
+            employeeRole = "Intern"
+            break;
+    }
+}
+
+buildTeam();
+
+function writeToFile(team) {
+    fs.writeFile(path.join(__dirname, "dist", fileName), generateFile(team), err => {
+        err ? console.log(err) : console.log('The file has been saved!');
+    });
+}
