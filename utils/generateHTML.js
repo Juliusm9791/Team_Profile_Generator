@@ -17,7 +17,7 @@ function generateFile(team) {
     
     
       <div class="container">
-        <div class="container-fluid py-5" style="background-color: yellow; margin-bottom: 15px;">
+        <div class="container-fluid py-5" style="background-color: rgb(20, 150, 50); margin-bottom: 15px; color: white;">
           <h1 class="display-5 fw-bold" style="text-align: center;">My Team</h1>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" style="justify-content: center;">
@@ -32,8 +32,10 @@ function generateFile(team) {
 }
 
 function card(team) {
+
     let cardForEmployee = ""
     let tag = "";
+
     for (let i = 0; i < team.length; i++) {
         team[i].officePhone ? tag = "Office Phone: " : "";
         team[i].gitHub ? tag = "GiHub: " : "";
@@ -43,7 +45,7 @@ function card(team) {
         <div class="card">
           <div class="card-img-top" style="background-color: blue; color: white;">
             <h2 style="margin: 10px;">${team[i].employeeName}</h2>
-            <h4 style="margin: 10px;">${team[i].role} <i class="bi bi-tools"></i></h4>
+            <h4 style="margin: 10px;">${team[i].role}</h4>
           </div>
           <div class="card-body" style="margin: 5px 0px; padding: 10px 0px;">
             <ul class="list-group list-group-flush">
