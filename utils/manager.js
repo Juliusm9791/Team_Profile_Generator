@@ -8,16 +8,17 @@ class Manager extends Employee {
     }
 
     async officeNumber() {
-        const answ = await inquirer
-            .prompt([{
-                type: 'input',
-                message: "What is Manager’s office number?",
-                name: 'officePhone',
-            },]);
-            console.log("")
-        this.officePhone = answ.officePhone;
+        while (!this.officePhone) {
+            const answ = await inquirer
+                .prompt([{
+                    type: 'input',
+                    message: "What is Manager’s office number?",
+                    name: 'officePhone',
+                },]);
+            answ.officePhone ? this.officePhone = answ.officePhone : console.log('\x1b[31m', `You did not entered Manager's Phone#!!!`, '\x1b[31m')
+        }
+        console.log("")
     }
-
 }
 
 module.exports = Manager;

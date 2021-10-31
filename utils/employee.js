@@ -9,33 +9,41 @@ class Employee {
     }
 
     async getName(employeeRole) {
-        const answ = await inquirer
-            .prompt([{
-                type: 'input',
-                message: `what is ${employeeRole}'s name?`,
-                name: 'name',
-            },]);
-        this.employeeName = answ.name.toUpperCase();
+        while (!this.employeeName) {
+            const answ = await inquirer
+                .prompt([{
+                    type: 'input',
+                    message: `what is ${employeeRole}'s name?`,
+                    name: 'name',
+                },]);
+            answ.name ? this.employeeName = answ.name.toUpperCase() : console.log('\x1b[31m', `You did not entered ${employeeRole}'s name!!!`, '\x1b[31m')
+        }
     }
 
     async getId(employeeRole) {
-        const answ = await inquirer
-            .prompt([{
-                type: 'input',
-                message: `What is ${employeeRole}'s employee ID?`, 
-                name: 'Id',
-            },]);
-        this.id = answ.Id;
+        while (!this.id) {
+            const answ = await inquirer
+                .prompt([{
+                    type: 'input',
+                    message: `What is ${employeeRole}'s employee ID?`,
+                    name: 'Id',
+                },]);
+            answ.Id ? this.id = answ.Id : console.log('\x1b[31m', `You did not entered ${employeeRole}'s ID!!!`, '\x1b[31m')
+        }
     }
 
     async getEmail(employeeRole) {
-        const answ = await inquirer
-            .prompt([{
-                type: 'input',
-                message: `What is ${employeeRole}'s email address?`, 
-                name: 'email',
-            },]);
-        this.email = answ.email;
+        const testEmail = /\S+@\S+\.\S+/;
+        while (!this.email) {
+            const answ = await inquirer
+                .prompt([{
+                    type: 'input',
+                    message: `What is ${employeeRole}'s email address?`,
+                    name: 'email',
+                },]);
+            !answ.email ? console.log('\x1b[31m', `You did not entered ${employeeRole}'s e-mail!!!`, '\x1b[31m') :
+                !testEmail.test(answ.email) ? console.log('\x1b[31m', `Wrong e-mail format!!!`, '\x1b[31m') : this.email = answ.email;
+        }
     }
 }
 

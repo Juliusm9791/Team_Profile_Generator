@@ -8,14 +8,16 @@ class Engineer extends Employee {
     }
 
     async getGithub() {
-        const answ = await inquirer
-            .prompt([{
-                type: 'input',
-                message: "What is Engineer’s GitHub?",
-                name: 'gitHub',
-            },]);
-            console.log("")
-        this.gitHub = answ.gitHub;
+        while (!this.gitHub) {
+            const answ = await inquirer
+                .prompt([{
+                    type: 'input',
+                    message: "What is Engineer’s GitHub?",
+                    name: 'gitHub',
+                },]);
+            answ.gitHub ? this.gitHub = answ.gitHub : console.log('\x1b[31m', `You did not entered Engineer's GitHub!!!`, '\x1b[31m')
+        }
+        console.log("")
     }
 }
 
