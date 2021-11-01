@@ -49,9 +49,9 @@ function card(team) {
           </div>
           <div class="card-body" style="margin: 5px 0px; padding: 10px 0px;">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Employee ID: ${team[i].id}</li>
-              <li class="list-group-item">E-mail: <a href="mailto:${team[i].email}">${team[i].email}</a></li>
-              <li class="list-group-item">${tag}${team[i].officePhone || team[i].gitHub || team[i].school}</li>
+              <li class="list-group-item"><strong>Employee ID: </strong>${team[i].id}</li>
+              <li class="list-group-item"><strong>E-mail: </strong><a href="mailto:${team[i].email}">${team[i].email}</a></li>
+              <li class="list-group-item"><strong>${tag}</strong>${team[i].officePhone || team[i].gitHub || team[i].school}</li>
             </ul>
           </div>
         </div>

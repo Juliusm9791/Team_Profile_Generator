@@ -55,7 +55,6 @@ async function buildTeam() {
             continueBuild(build.occupation);
         }
     }
-    // console.log(team)
     writeToFile(team)
 }
 

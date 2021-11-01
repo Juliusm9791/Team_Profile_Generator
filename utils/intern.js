@@ -10,7 +10,7 @@ class Intern extends Employee {
 
     getRoleInt(employeeRole) {
         if (employeeRole === "Intern") {
-            console.log(`Enter ${employeeRole} information.`)
+            console.log("\x1b[33m", `Enter ${employeeRole}'s information.`, "\x1b[33m")
             this.role = employeeRole;
         } else {
             this.role = "";
