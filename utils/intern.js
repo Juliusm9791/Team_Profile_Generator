@@ -2,9 +2,19 @@ const inquirer = require("inquirer");
 const Employee = require("./employee")
 
 class Intern extends Employee {
-    constructor(role, employeeName, id, email, school) {
-        super(role, employeeName, id, email)
+    constructor(employeeName, id, email, school, role) {
+        super(employeeName, id, email)
         this.gitHub = school;
+        this.role = role;
+    }
+
+    getRoleInt(employeeRole) {
+        if (employeeRole === "Intern") {
+            console.log(`Enter ${employeeRole} information.`)
+            this.role = employeeRole;
+        } else {
+            this.role = "";
+        }
     }
 
     async getSchool() {

@@ -1,8 +1,7 @@
 const inquirer = require("inquirer");
 
 class Employee {
-    constructor(role, employeeName, id, email) {
-        this.role = role;
+    constructor(employeeName, id, email) {
         this.employeeName = employeeName;
         this.id = id;
         this.email = email;
@@ -16,7 +15,7 @@ class Employee {
                     message: `what is ${employeeRole}'s name?`,
                     name: 'name',
                 },]);
-            answ.name ? this.employeeName = answ.name.toUpperCase() : console.log('\x1b[31m', `You did not entered ${employeeRole}'s name!!!`, '\x1b[31m')
+            answ.name ? this.employeeName = answ.name.toUpperCase() : console.log('\x1b[31m', `You did not entered ${employeeRole}'s name!!!`, '\x1b[31m');
         }
     }
 

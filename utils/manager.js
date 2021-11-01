@@ -2,9 +2,19 @@ const inquirer = require("inquirer");
 const Employee = require("./employee")
 
 class Manager extends Employee {
-    constructor(role, employeeName, id, email, officePhone) {
-        super(role, employeeName, id, email)
+    constructor(employeeName, id, email, officePhone, role) {
+        super(employeeName, id, email)
         this.officePhone = officePhone;
+        this.role = role;
+    }
+
+    getRoleMan(employeeRole) {
+        if (employeeRole === "Manager") {
+            console.log(`Enter ${employeeRole} information.`)
+            this.role = employeeRole;
+        } else {
+            this.role = ""
+        }
     }
 
     async officeNumber() {
@@ -23,3 +33,4 @@ class Manager extends Employee {
 
 module.exports = Manager;
 
+// || employeeRole === "Engineer" || employeeRole === "Intern")
