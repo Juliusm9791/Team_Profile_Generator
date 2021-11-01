@@ -25,7 +25,7 @@ class Intern extends Employee {
                     message: "What is Intern’s school?",
                     name: 'school',
                 },]);
-            answ.school ? this.school = answ.school : console.log('\x1b[31m', `You did not entered Intern's School!!!`, '\x1b[31m')
+            answ.school ? this.school = answ.school.trim() : console.log('\x1b[31m', `You did not entered Intern's School!!!`, '\x1b[31m')
         }
         console.log("");
     }

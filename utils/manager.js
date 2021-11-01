@@ -25,7 +25,7 @@ class Manager extends Employee {
                     message: "What is Manager’s office number?",
                     name: 'officePhone',
                 },]);
-            answ.officePhone ? this.officePhone = answ.officePhone : console.log('\x1b[31m', `You did not entered Manager's Phone#!!!`, '\x1b[31m')
+            answ.officePhone ? this.officePhone = answ.officePhone.trim() : console.log('\x1b[31m', `You did not entered Manager's Phone#!!!`, '\x1b[31m')
         }
         console.log("")
     }

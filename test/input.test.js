@@ -4,7 +4,7 @@ const Intern = require('../utils/intern');
 
 
 describe("Employe Role", () => {
-    describe("Should the rigt employee role", () => {
+    describe("Should be the rigt employee role", () => {
         it("Have to be 'Manager'", () => {
 
             const rigtRole = "Manager";
@@ -27,21 +27,21 @@ describe("Employe Role", () => {
             result.getRoleInt(rigtRole);
             expect(result.role).toEqual("Intern");
         });
-        it("If it is not 'Manager'", () => {
+        it("If it is not a 'Manager'", () => {
 
             const falseRole = "Engineer";
             const result = new Manager();
             result.getRoleMan(falseRole);
             expect(result.role).toEqual("");
         });
-        it("If it is not 'Intern'", () => {
+        it("If it is not an 'Intern'", () => {
 
             const falseRole = "Engineer";
             const result = new Intern();
             result.getRoleInt(falseRole);
             expect(result.role).toEqual("");
         });
-        it("If it is not a 'Enginner'", () => {
+        it("If it is not an 'Enginner'", () => {
 
             const falseRole = "Manager";
             const result = new Enginner();

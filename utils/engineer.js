@@ -25,7 +25,7 @@ class Engineer extends Employee {
                     message: "What is Engineer’s GitHub?",
                     name: 'gitHub',
                 },]);
-            answ.gitHub ? this.gitHub = answ.gitHub : console.log('\x1b[31m', `You did not entered Engineer's GitHub!!!`, '\x1b[31m')
+            answ.gitHub ? this.gitHub = answ.gitHub.trim() : console.log('\x1b[31m', `You did not entered Engineer's GitHub!!!`, '\x1b[31m')
         }
         console.log("")
     }

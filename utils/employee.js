@@ -15,7 +15,7 @@ class Employee {
                     message: `what is ${employeeRole}'s name?`,
                     name: 'name',
                 },]);
-            answ.name ? this.employeeName = answ.name.toUpperCase() : console.log('\x1b[31m', `You did not entered ${employeeRole}'s name!!!`, '\x1b[31m');
+            answ.name ? this.employeeName = answ.name.toUpperCase().trim() : console.log('\x1b[31m', `You did not entered ${employeeRole}'s name!!!`, '\x1b[31m');
         }
     }
 
@@ -27,7 +27,7 @@ class Employee {
                     message: `What is ${employeeRole}'s employee ID?`,
                     name: 'Id',
                 },]);
-            answ.Id ? this.id = answ.Id : console.log('\x1b[31m', `You did not entered ${employeeRole}'s ID!!!`, '\x1b[31m')
+            answ.Id ? this.id = answ.Id.trim() : console.log('\x1b[31m', `You did not entered ${employeeRole}'s ID!!!`, '\x1b[31m')
         }
     }
 
@@ -41,7 +41,7 @@ class Employee {
                     name: 'email',
                 },]);
             !answ.email ? console.log('\x1b[31m', `You did not entered ${employeeRole}'s e-mail!!!`, '\x1b[31m') :
-                !testEmail.test(answ.email) ? console.log('\x1b[31m', `Wrong e-mail format!!!`, '\x1b[31m') : this.email = answ.email;
+                !testEmail.test(answ.email.trim()) ? console.log('\x1b[31m', `Wrong e-mail format!!!`, '\x1b[31m') : this.email = answ.email.trim();
         }
     }
 }
