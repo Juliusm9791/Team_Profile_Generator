@@ -1,36 +1,57 @@
 # Team Profile Generator
- [![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
   ## Table of contents
   - [Description](#description)
   - [Installation instructions](#installation-instructions)
   - [Usage information](#usage-information)
-  - [Contribution guidelines](#contribution-guidelines)
   - [Test instructions](#test-instructions)
   - [License](#license)
   - [Questions](#questions)
 
 
   ## Description
-  
-  
+
+  This is a Node.js command-line application that takes in information about employees on engineering team, then generates an HTML webpage that displays summaries for each person. 
+
+  User input screenshot:
+  ![Code-Quiz-Start](./images/demo.jpg)
+
+  #### Demo video
+
+  [Team Profile Generator video demonstration](https://drive.google.com/file/d/1PN4xAaWebrhjSPdkmJKHXLnSasAgVhtp/view?usp=sharing)
+
+  #### For this project the following technologies were used:
+  * Nodejs
+  * npm inquirer
+  * npm jest
+  * css Bootstrap
+
+
   ## Installation instructions
+
   For dependancies run following comand:
 
   ```npm i```
+
   ## Usage information
-  Run following command:
+
+  To use this app - run the following command:
 
  ```node index```
-  ## Contribution guidelines
-  
+
   ## Test instructions
 
-  ## License
-  [![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
+  For testing - run the following command:
 
-  Usage is provided under the [2-Clause BSD License](https://opensource.org/licenses/BSD-2-Clause). See LICENSE for the full details.
+ ```npm test```
+
+  ## License
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+  Usage is provided under [The MIT License](https://opensource.org/licenses/MIT). See LICENSE for the full details.
 
   ## Questions
 
