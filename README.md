@@ -16,7 +16,11 @@
   This is a Node.js command-line application that takes in information about employees on engineering team, then generates an HTML webpage that displays summaries for each person. 
 
   User input screenshot:
-  ![Code-Quiz-Start](./images/demo.jpg)
+  ![Team Profile Generator](./images/demo.jpg)
+
+  HTML output file:
+  ![Team Profile Generator HTML](./images/demo_html.jpg)
+
 
   #### Demo video
 
